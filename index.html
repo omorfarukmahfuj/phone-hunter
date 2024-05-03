@@ -86,11 +86,28 @@
       </div> -->
     </div>
 
-    <!-- Show All -->
+    <!-- Show All Button -->
     <div onclick="handleShowAll()" id="show-all-container" class="flex justify-center hidden">
       <button class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white mb-14 lg:mb-28 text-base">Show All</button>
     </div>
 
+    <!-- Show Details Modal -->
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="show_details_modal.showModal()">open modal</button> -->
+    <dialog id="show_details_modal" class="modal sm:modal-middle">
+      <div class="modal-box">
+        <div id="show-detail-container">
+         
+        </div>
+
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn bg-[#DC3545] rounded text-white px-10 py-3 text-base font-bold">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
   </main>
 
   <footer>

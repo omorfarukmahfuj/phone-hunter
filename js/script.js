@@ -1,4 +1,4 @@
-const loadPhone = async (searchText, isShowAll) => {
+const loadPhone = async (searchText = '13', isShowAll) => {
   const response = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
   const data = await response.json();
   const phones = data.data;
@@ -37,7 +37,7 @@ const displayPhones = (phones, isShowAll) => {
     <h3 class="text-xl font-bold mt-5 mb-4 text-center text-[#3f3f40]">${phone.phone_name}</h3>
     <p class="text-sm mb-[6px] text-center text-[#706F6F]">There are many variations of passages of available, but the majority have suffered</p>
     <p class="text-xl font-bold mb-3 text-center text-[#3f3f40]">$999</p>
-    <button class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white text-base">Show Details</button>
+    <button onclick = "handleShowDetails('${phone.slug}')" class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white text-base">Show Details</button>
     `;
     // 4. Append child
     phoneContainer.appendChild(phoneCard);
@@ -71,10 +71,40 @@ const handleShowAll = () => {
   handleSearch(true);
 }
 
+// Handle Show Details
+const handleShowDetails = async (id) => {
+  const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+  const data = await res.json();
+  const phone = data.data;
 
+  showPhoneDetails(phone);
+}
 
+const showPhoneDetails = (phone) => {
+  console.log(phone);
+  show_details_modal.showModal();
+  const showDetailContainer = document.getElementById('show-detail-container');
+  showDetailContainer.innerHTML = `
+  <div class="bg-[#0D6EFD0D] rounded-md flex justify-center p-3 md:py-10 md:px-40 mb-4 md:mb-8">
+  <img src="${phone.image}">
+</div>
+<h4 class="text-[#403F3F] text-2xl font-bold mb-5">${phone.name}</h4>
+<p class="text-[#706F6F] text-xs mb-4 leading-5">It is a long established fact that a reader will be
+  distracted by
+  the readable
+  content of a page when looking at its layout.</p>
+<p class="text-base text-[#706F6F] mb-3"><strong class="text-[#403F3F]">Storage : </strong>${phone?.mainFeatures?.storage}</p>
+<p class="text-base text-[#706F6F] mb-3"><strong class="text-[#403F3F]">Display Size : </strong>${phone?.mainFeatures?.displaySize}
+</p>
+<p class="text-base text-[#706F6F] mb-3"><strong class="text-[#403F3F]">Chipset : </strong>${phone?.mainFeatures?.chipSet}
+</p>
+<p class="text-base text-[#706F6F] mb-3"><strong class="text-[#403F3F]">Memory : </strong>${phone?.mainFeatures?.memory}</p>
+<p class="text-base text-[#706F6F] mb-3"><strong class="text-[#403F3F]">Release data : </strong>${phone?.releaseDate}</p>
+<p class="text-base text-[#706F6F] mb-3"><strong class="text-[#403F3F]">Brand : </strong>${phone?.brand}</p>
+<p class="text-base text-[#706F6F] mb-3"><strong class="text-[#403F3F]">GPS : </strong>${phone?.others?.GPS ?? "Unknown"}
+</p>
+  `;
 
-
-
+};
 
 loadPhone();
