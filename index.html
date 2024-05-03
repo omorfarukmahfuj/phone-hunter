@@ -92,14 +92,10 @@
     </div>
 
     <!-- Show Details Modal -->
-    <!-- Open the modal using ID.showModal() method -->
-    <!-- <button class="btn" onclick="show_details_modal.showModal()">open modal</button> -->
     <dialog id="show_details_modal" class="modal sm:modal-middle">
       <div class="modal-box">
         <div id="show-detail-container">
-         
         </div>
-
         <div class="modal-action">
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
@@ -110,8 +106,46 @@
     </dialog>
   </main>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="bg-[#0D6EFD0D]">
+    <div class="w-11/12 lg:w-4/5 mx-auto md:flex justify-between items-center pt-10">
+      <div>
+        <h1 class="font-bold text-xl md:text-3xl text-[#100F0F] mb-2">Phone Hunter</h1>
+        <p class="font-semibold text-xs md:text-sm text-[#706F6F]">You can definitely work.</p>
+      </div>
 
+      <div class="flex gap-6 mt-4 md:mt-0">
+        <div class="flex gap-3 items-center">
+          <img src="images/Facebook.png" alt="">
+          <img src="images/Twitter.png" alt="">
+          <img src="images/Instagram.png" alt="">
+        </div>
+        <button class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white text-base">Join Premium</button>
+      </div>
+    </div>
+
+    <hr class="h-[1px] bg-[#CFCFCF] my-5 md:my-10">
+
+    <div class="footer pb-10 w-11/12 lg:w-4/5 mx-auto text-[#403F3F] text-base font-medium">
+      <nav>
+        <a class="link link-hover">Apple</a>
+        <a class="link link-hover">Samsung</a>
+        <a class="link link-hover">Oppo</a>
+        <a class="link link-hover">Tablet</a>
+        <a class="link link-hover">Watch</a>
+      </nav>
+      <nav>
+        <a class="link link-hover">About us</a>
+        <a class="link link-hover">Contact</a>
+        <a class="link link-hover">Jobs</a>
+        <a class="link link-hover">Press kit</a>
+      </nav>
+      <nav>
+        <a class="link link-hover">Terms of use</a>
+        <a class="link link-hover">Privacy policy</a>
+        <a class="link link-hover">Cookie policy</a>
+      </nav>
+    </div>
   </footer>
 
   <script src="js/script.js"></script>
