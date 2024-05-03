@@ -24,17 +24,18 @@
         </div>
 
         <div class="navbar-end">
-          <a class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white">Sign Up</a>
+          <a class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white text-base">Sign Up</a>
         </div>
       </div>
     </nav>
     <section class="w-11/12 lg:w-4/5 mx-auto flex flex-col items-center">
       <h1 class="text-5xl font-bold text-center text-[#100F0F] mt-10 mb-5 leading-[70px]">Apple Iphone 13 Pro Max</h1>
-      <p class="text-sm text-[#706F6F] text-center mb-6">There are many variations of passages of Lorem Ipsum available,
+      <p class="text-sm text-[#706F6F] text-center mb-6 lg:w-2/4">There are many variations of passages of Lorem Ipsum
+        available,
         but the majority have suffered alteration in
         some
         form, by injected humou.</p>
-      <button class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white mb-36 lg:mb-72">Buy Now</button>
+      <button class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white mb-36 lg:mb-72 text-base">Buy Now</button>
     </section>
   </header>
 
@@ -44,15 +45,50 @@
 
   <main class="w-11/12 lg:w-4/5 mx-auto mt-12 lg:mt-24">
     <h2 class="text-xl font-semibold text-[#100F0F] text-center mb-6">Search your phone</h2>
+
+    <!-- Search Field -->
     <div class="flex justify-center">
       <div class="w-[600px] max-w-full mb-10 relative">
 
-        <input class="p-4 w-full bg-[#100F0F0D] rounded-md outline-none" type="text" placeholder="Search your phone">
+        <input id="search-field" class="p-4 w-full bg-[#100F0F0D] rounded-md outline-none" type="text"
+          placeholder="Search your phone">
 
-        <button
-          class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white mb-36 lg:mb-72 h-full aspect-[1] absolute right-0">Submit</button>
+        <button onclick="handleSearch()"
+          class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white mb-36 lg:mb-72 h-full aspect-[1] absolute right-0 text-base">Submit</button>
 
       </div>
+    </div>
+
+    <!-- Spinner or Loader -->
+    <div id="loading-spinner" class="text-center my-20 lg:my-40 hidden">
+      <span class="loading loading-spinner text-info"></span>
+    </div>
+
+    <!-- Cards Container -->
+    <div id="phone-container" class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+
+      <!-- Card -->
+      <!-- <div class="border border-[#CFCFCF] rounded-md p-5 flex flex-col items-center">
+
+        <div class="bg-[#0D6EFD0D] rounded-md w-full flex justify-center items-center">
+
+          <img class="h-3/4" src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg" alt="">
+        </div>
+
+        <h3 class="text-xl font-bold mt-5 mb-4 text-center text-[#3f3f40]">Iphone 13 Pro Max</h3>
+        <p class="text-sm mb-[6px] text-center text-[#706F6F]">There are many variations of passages of available, but
+          the majority have suffered</p>
+        <p class="text-xl font-bold mb-3 text-center text-[#3f3f40]">$999</p>
+
+        <button class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white text-base">Show
+          Details</button>
+
+      </div> -->
+    </div>
+
+    <!-- Show All -->
+    <div onclick="handleShowAll()" id="show-all-container" class="flex justify-center hidden">
+      <button class="btn px-8 bg-[#0D6EFD] hover:bg-[#0a58ca] text-white mb-14 lg:mb-28 text-base">Show All</button>
     </div>
 
   </main>
